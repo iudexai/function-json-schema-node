@@ -17,7 +17,7 @@ pnpm add function-json-schema
 
 ## Schema
 
-OpenAI slightly modified JSON schema because the original [JSON schema specification](https://json-schema.org/specification) does not include functions because functions are not serializable into JSON. Our function JSON schema codies roughly what OpenAI uses in their examples but includes additional restrictions and flexibility for better LLM results.
+OpenAI slightly modified JSON schema because the original [JSON schema specification](https://json-schema.org/specification) does not include functions because functions are not serializable into JSON. Our function JSON schema copies roughly what OpenAI uses in their examples but includes additional restrictions and flexibility for better LLM results.
 
 ```typescript
 export const functionJsonSchema = z.object({
@@ -38,7 +38,7 @@ export const functionJsonSchema = z.object({
 });
 ```
 
-Keen eyes will notice the inclusion a few extra type changes:
+Keen eyes will notice the inclusion of a few extra type changes:
 
 - `description` is mandatory.
 
@@ -48,8 +48,8 @@ Keen eyes will notice the inclusion a few extra type changes:
 
 - `usageExample` and `returnsExample` for additional documentation.
 
-We encourage filling these out as best practice for your functions.
-However, the loose type can still be extracted with the `coerceFunctionJsonSchema` validator.
+We encourage filling these out as a best practice for your functions.
+However, the loose type can still be extracted with the `coerceFunctionJsonSchema` validator to provide sane defaults.
 
 Additionally, we have added some new types:
 
